@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/family_bg13x"
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:orientation="vertical">
+
+        <TextView
+            android:textSize="14sp"
+            android:gravity="center_vertical"
+            android:background="@drawable/phone_bg"
+            android:textColor="@color/white"
+            android:paddingLeft="50dip"
+            android:layout_marginLeft="30dip"
+            android:layout_centerVertical="true"
+            android:text="138****2398"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <com.easychange.admin.smallrain.views.CircleImageView
+            android:layout_marginLeft="30dip"
+            android:layout_centerVertical="true"
+            android:src="@color/def_bg"
+            android:layout_width="45dp"
+            android:layout_height="45dip" />
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/home_button3x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>

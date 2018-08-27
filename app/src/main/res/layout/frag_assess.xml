@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <RelativeLayout
+        android:background="@drawable/family_bg13x"
+        android:layout_width="match_parent"
+        android:layout_height="80dip"
+        android:orientation="vertical">
+        <TextView
+            android:textStyle="bold"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="30dip"
+            android:layout_centerVertical="true"
+            android:text="问卷评估"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:textSize="13sp"
+            android:textColor="@color/white"
+            android:layout_marginLeft="30dip"
+            android:layout_marginBottom="7dip"
+            android:layout_alignParentBottom="true"
+            android:text="让我们来客观评测孩子的进步！"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <ImageView
+            android:layout_centerVertical="true"
+            android:layout_marginRight="15dip"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/home_button3x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+</LinearLayout>
