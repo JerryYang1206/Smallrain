@@ -9,7 +9,6 @@
 
 
     <com.easychange.admin.smallrain.views.NoScrollViewPager
-        android:background="@drawable/family_bg23x"
         android:id="@+id/act_main_vp"
         android:layout_width="match_parent"
         android:layout_height="0dp"

@@ -217,7 +217,7 @@ public class MyUtils {
         //        Matcher m = p.matcher(mobiles);
         //        return m.matches();
         //上面的验证会有些问题，手机号码格式不是固定的，所以就弄简单点
-        if (mobiles.length() == 11) {
+        if (mobiles.length() == 13) {
             return true;
         }
         return false;
