@@ -27,30 +27,46 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
             </LinearLayout>
-            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            <!--滑块验证-->
+            <RelativeLayout
+                android:paddingLeft="20dip"
+                android:paddingRight="20dip"
+                android:layout_marginTop="20dip"
+                android:id="@+id/seekbar_rlyt"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="16dp">
+                android:layout_height="45dp"
+                android:visibility="visible"
+                >
 
                 <com.easychange.admin.smallrain.views.VerificationSeekBar
-                    android:id="@+id/sb"
+                    android:id="@+id/seekbar_sb"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:max="100"
-                    android:progress="0"
+                    android:clickable="false"
+                    android:maxHeight="43dp"
+                    android:minHeight="43dp"
+                    android:thumbOffset="0dp"
                     android:progressDrawable="@drawable/seekbar_bg"
                     android:thumb="@drawable/sign_icon_right3x"
-                    android:thumbOffset="0dp" />
+                    />
 
                 <TextView
-                    android:id="@+id/tv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
+                    android:id="@+id/seekbar_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:text="请按住滑块，拖动到最右边"
-                    android:textColor="#888888"
-                    android:textSize="14dp" />
+                    android:layout_centerInParent="true"
+                    android:text="验证成功"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"
+                    android:visibility="gone"
+                    />
+                <View
+                    android:clickable="true"
+                    android:layout_marginLeft="80dip"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"></View>
             </RelativeLayout>
         </LinearLayout>
 </LinearLayout>

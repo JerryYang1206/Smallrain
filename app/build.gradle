@@ -29,4 +29,5 @@ dependencies {
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
     implementation 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.22'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation 'com.xw.repo:fillblankview:2.1@aar'
 }

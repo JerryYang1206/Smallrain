@@ -4,10 +4,11 @@ import android.content.Context;
 import android.support.v7.widget.AppCompatSeekBar;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.widget.SeekBar;
 
-public class VerificationSeekBar extends AppCompatSeekBar{
+public class VerificationSeekBar extends SeekBar{
     //这两个值为用算法使用的2空间复杂度
-    private int index = 150;
+    private int index = 180;
     private boolean k = true;
 
     public VerificationSeekBar(Context context) {

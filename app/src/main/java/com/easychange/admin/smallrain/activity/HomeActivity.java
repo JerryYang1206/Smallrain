@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
-import com.easychange.admin.smallrain.MainActivity;
 import com.easychange.admin.smallrain.R;
 import com.easychange.admin.smallrain.base.BaseActivity;
+import com.easychange.admin.smallrain.login.RegisterActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -39,7 +39,7 @@ public class HomeActivity extends BaseActivity {
             case R.id.btn_login:
                 break;
             case R.id.layout_more:
-                startActivity(new Intent(this, MainActivity.class));
+//                startActivity(new Intent(this, MainActivity.class));
                 break;
         }
     }
