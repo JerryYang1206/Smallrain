@@ -28,6 +28,7 @@ public class HomeActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
+        startActivity(new Intent(this,BalloonActivity.class));
     }
 
     @OnClick({R.id.btn_register, R.id.btn_login, R.id.layout_more})

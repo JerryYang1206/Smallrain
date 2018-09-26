@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.easychange.admin.smallrain">
+<manifest package="com.easychange.admin.smallrain"
+          xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
         android:name=".MyApplication"
@@ -14,15 +14,18 @@
         android:theme="@style/AppTheme">
         <activity android:name=".activity.HomeActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".login.AuthCodeActivity" />
-        <activity android:name=".login.SetLoginPassActivity"></activity>
+        <activity android:name=".MainActivity"/>
+        <activity android:name=".login.RegisterActivity"/>
+        <activity android:name=".login.AuthCodeActivity"/>
+        <activity android:name=".login.SetLoginPassActivity"/>
+        <activity android:name=".activity.BalloonActivity"/>
+        <activity android:name=".activity.MingciActivity">
+        </activity>
     </application>
 
 </manifest>
