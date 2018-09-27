@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -37,6 +38,10 @@ public class MingciActivity extends BaseActivity {
     TextView tvPaint;
     @BindView(R.id.tv_content)
     TextView tv_content;
+    @BindView(R.id.fl_paint)
+    FrameLayout fl_paint;
+    @BindView(R.id.fl_content)
+    FrameLayout fl_content;
     private int[] paintList = {
             R.drawable.red_paint,
             R.drawable.black_paint,
@@ -55,7 +60,12 @@ public class MingciActivity extends BaseActivity {
         initStatusBar();
         ivPaint.setImageResource(paintList[3]);
         AnimationHelper.startScaleAnimation(this, drawImg);
-        AnimationHelper.startRotateAnimation(this, ivPaint);
+        ivPaint.post(new Runnable() {
+            @Override
+            public void run() {
+                AnimationHelper.startRotateAnimation(ivPaint);//笔晃动
+            }
+        });
         drawImg.setOverBack(new DrawImgView.OverBack() {
             @Override
             public void second() {
@@ -70,9 +80,12 @@ public class MingciActivity extends BaseActivity {
             @Override
             public void onEnd() {
                 AnimationHelper.startPaintGoneAnimation(MingciActivity.this, ivPaint);
-                ivPaint.setVisibility(View.GONE);
-                AnimationHelper.startTextMergeAnimation(tvPaint, -80);
+//                ivPaint.setVisibility(View.GONE);
+                AnimationHelper.startTextMergeAnimation(fl_paint, -80);
+                AnimationHelper.startTextMergeAnimation(fl_content, 20);
+                AnimationHelper.startTextMergeAnimation(tvPaint, 40);
                 AnimationHelper.startTextMergeAnimation(tv_content, 20);
+                AnimationHelper.startScaleAnimation(MingciActivity.this, drawImg);
             }
         });
     }
@@ -97,8 +110,8 @@ public class MingciActivity extends BaseActivity {
         int x2 = MyUtils.dip2px(this, (85 - 45) / 2 + 10);
         int screenHeight = MyUtils.getScreenHeight(MyApplication.getGloableContext());
         int y = screenHeight - MyUtils.dip2px(this, 305 + 45) - MyUtils.getStatusBarHeight(this);
-        AnimationHelper.startTextMoveAnimation(tvPaint, x1, y);
-        AnimationHelper.startTextMergeAnimation(tv_content, x2);//右边的字往右移动一些
+        AnimationHelper.startTextMoveAnimation(fl_paint, x1, y);
+        AnimationHelper.startTextMergeAnimation(fl_content, x2);//右边的字往右移动一些
     }
 
     private void startmovePaint() {
@@ -107,6 +120,7 @@ public class MingciActivity extends BaseActivity {
             public void onAnimationEnd(View view) {
                 drawImg.movePath();
                 ivPaint.setClickable(false);
+                AnimationHelper.startPaintDrawAnimation(ivPaint);
             }
         });
     }

@@ -42,7 +42,7 @@ public class BalloonActivity extends BaseActivity {
     ImageView iv_dongci;
     @BindView(R.id.iv_juzi)
     ImageView iv_juzi;
-    private int flutterHeight;
+    private float flutterHeight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class BalloonActivity extends BaseActivity {
         transYAnim.start();
     }
 
-    private void startAnimator(ImageView view, int x, int y, long duration, final int position) {
+    private void startAnimator(ImageView view, float x, float y, long duration, final int position) {
         ObjectAnimator transXAnim = ObjectAnimator.ofFloat(view, "translationX", 0, x);
         transXAnim.setDuration(duration);
         ObjectAnimator transYAnim = ObjectAnimator.ofFloat(view, "translationY", 0, y);
@@ -111,10 +111,10 @@ public class BalloonActivity extends BaseActivity {
         int screenWidth = MyUtils.getScreenWidth(this);
         int screenHeight = MyUtils.getScreenHeight(this);
         int marginleft = MyUtils.dip2px(this, 100);
-        flutterHeight = screenHeight / 4;
-        startAnimator(iv_mingci, marginleft + screenWidth / 11, -(screenHeight / 4), 2000, 0);
-        startAnimator(iv_dongci, marginleft + screenWidth / 11 * 4, -(screenHeight / 4 - 200), 2500, 1);
-        startAnimator(iv_juzi, marginleft + screenWidth / 11 * 7, -(screenHeight / 4 + 300), 3000, 2);
+        flutterHeight = screenHeight / 3.6f;
+        startAnimator(iv_mingci, marginleft + screenWidth / 11, -(screenHeight / 3.6f), 2000, 0);
+        startAnimator(iv_dongci, marginleft + screenWidth / 11 * 4.3f, -(screenHeight / 5.0f), 2500, 1);
+        startAnimator(iv_juzi, marginleft + screenWidth / 11 * 7, -(screenHeight / 2.2f), 3000, 2);
     }
 
     private void initStatusBar() {

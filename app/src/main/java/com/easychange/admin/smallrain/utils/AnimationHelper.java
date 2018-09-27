@@ -1,66 +1,83 @@
 package com.easychange.admin.smallrain.utils;
 
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.view.View;
 import android.view.animation.Animation;
-import android.view.animation.AnimationSet;
-import android.view.animation.RotateAnimation;
-import android.view.animation.TranslateAnimation;
 
 import com.easychange.admin.smallrain.MyApplication;
 import com.easychange.admin.smallrain.R;
 
 public class AnimationHelper {
 
-    /*刚进入页面时的缩放动画*/
+    private static AnimatorSet paintRotateSet;
+
+    /*刚进入页面时课件的缩放动画*/
     public static void startScaleAnimation(Context context, View view) {
         Animation animation = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.anim_scale_pic);
         view.startAnimation(animation);
     }
 
     /*刚进入页面时的笔晃动动画*/
-    public static void startRotateAnimation(Context context, View view) {
-        Animation animation = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.anim_rotate_paint);
-        view.startAnimation(animation);
+    public static void startRotateAnimation(View view) {
+        view.setPivotX(view.getWidth() / 2);
+        view.setPivotY(view.getHeight());
+        ObjectAnimator rotation1 = ObjectAnimator.ofFloat(view, "rotation", 0f, -15f);
+        ObjectAnimator rotation2 = ObjectAnimator.ofFloat(view, "rotation", -15f, 15f);
+        ObjectAnimator rotation3 = ObjectAnimator.ofFloat(view, "rotation", 15f, -15f);
+        ObjectAnimator rotation4 = ObjectAnimator.ofFloat(view, "rotation", -15f, 0f);
+        paintRotateSet = new AnimatorSet();
+        paintRotateSet.playSequentially(rotation1, rotation2, rotation3, rotation4);
+        paintRotateSet.setDuration(2000);
+        paintRotateSet.start();
     }
 
     /*笔消失动画*/
     public static void startPaintGoneAnimation(Context context, View view) {
-        Animation animation = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.anim_picgone);
-        view.startAnimation(animation);
+        //        Animation animation = android.view.animation.AnimationUtils.loadAnimation(context, R.anim.anim_picgone);
+        //        view.startAnimation(animation);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(view, "alpha", 1f, 0f);
+        animator.setDuration(1000);
+        animator.start();
     }
 
     /*笔飞到图片上的动画*/
     public static void startPaintMoveAnimation(final View view, final AnimationEndInterface animationEndInterface) {
+        paintRotateSet.cancel();//点击画笔的时候要停止晃动
         int screenWidth = MyUtils.getScreenWidth(MyApplication.getGloableContext());
         int screenHeight = MyUtils.getScreenHeight(MyApplication.getGloableContext());
-        TranslateAnimation tr = new TranslateAnimation(0, screenWidth / 2.7f, 0, -(screenHeight / 5.5f));
-        RotateAnimation ros = new RotateAnimation(0, -45,
-                RotateAnimation.RELATIVE_TO_SELF, 0f, RotateAnimation.RELATIVE_TO_SELF, 0f);
-        AnimationSet setAnimation = new AnimationSet(true);
-        setAnimation.addAnimation(tr);
-        setAnimation.addAnimation(ros);
-        setAnimation.setDuration(2000);
-        setAnimation.setFillAfter(true);
-        setAnimation.setFillBefore(false);
-        view.startAnimation(setAnimation);
-        setAnimation.setAnimationListener(new Animation.AnimationListener() {
+        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 130) - view.getHeight();
+        ObjectAnimator rotation = ObjectAnimator.ofFloat(view, "rotation", 0f, -45f);
+        ObjectAnimator obx = ObjectAnimator.ofFloat(view, "translationX", screenWidth / 3f);
+        ObjectAnimator oby = ObjectAnimator.ofFloat(view, "translationY", -y);
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(rotation, obx, oby);
+        set.setDuration(2000);
+        set.start();
+        set.addListener(new AnimatorListenerAdapter() {
             @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
                 animationEndInterface.onAnimationEnd(view);
             }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
         });
+    }
+
+    /*模拟笔画画的动画*/
+    public static void startPaintDrawAnimation(View view) {
+        int screenWidth = MyUtils.getScreenWidth(MyApplication.getGloableContext());
+        int screenHeight = MyUtils.getScreenHeight(MyApplication.getGloableContext());
+        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 130) - view.getHeight();
+        ObjectAnimator oby = ObjectAnimator.ofFloat(view, "translationY", -y + 20, -y + 60, -y + 100, -y + 140);
+        ObjectAnimator obx = ObjectAnimator.ofFloat(view, "translationX", screenWidth / 3f + 60, screenWidth / 3f);
+        obx.setRepeatCount(3);
+        AnimatorSet set = new AnimatorSet();
+        set.playTogether(oby, obx);
+        set.setDuration(2000);
+        set.start();
     }
 
     /*文字飞的动画*/
