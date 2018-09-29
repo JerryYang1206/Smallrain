@@ -11,6 +11,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/tv_user_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -23,6 +24,7 @@
             android:textSize="14sp" />
 
         <com.easychange.admin.smallrain.views.CircleImageView
+            android:id="@+id/img_user_data"
             android:layout_width="45dp"
             android:layout_height="45dip"
             android:layout_centerVertical="true"
@@ -30,6 +32,7 @@
             android:src="@color/def_bg" />
 
         <ImageView
+            android:id="@+id/img_home_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -72,23 +75,17 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/layout_write_data"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left"
             android:orientation="horizontal"
             android:paddingLeft="30dip"
             android:paddingRight="30dip">
-
-            <TextView
-                android:layout_width="5dip"
-                android:layout_height="5dip"
-                android:background="@drawable/black_oval"
-                android:visibility="invisible" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="8dip"
+                android:paddingLeft="13dip"
                 android:text="完善个人信息"
                 android:textColor="@color/text_tu" />
 
@@ -123,7 +120,7 @@
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_name"
+                        android:id="@+id/tv_user_name"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -143,6 +140,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_change_user_name"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dip"
@@ -181,6 +179,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_user_pass"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -200,6 +199,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_change_user_pass"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dip"
@@ -238,6 +238,7 @@
                     android:orientation="vertical">
 
                     <TextView
+                        android:id="@+id/tv_buttom_user_phone"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -257,6 +258,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/layout_change_user_phone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dip"
@@ -321,6 +323,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_wangzhan"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="www.xiaoyudi.org"
@@ -344,6 +347,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_youxiang"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="xiaoyudi@dakoudai.com"
@@ -367,6 +371,7 @@
                 android:textSize="14sp" />
 
             <LinearLayout
+                android:id="@+id/layout_see_weichart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="left"
@@ -403,6 +408,7 @@
                 android:textSize="14sp" />
 
             <TextView
+                android:id="@+id/tv_qq_qun"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text=""
@@ -450,6 +456,7 @@
                 android:textSize="14sp" />
 
             <LinearLayout
+                android:id="@+id/layout_pingjia"
                 android:layout_marginLeft="31dip"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -473,6 +480,7 @@
 
         </LinearLayout>
         <LinearLayout
+            android:id="@+id/layout_out_login"
             android:layout_marginTop="15dip"
             android:layout_marginLeft="43dip"
             android:layout_width="wrap_content"

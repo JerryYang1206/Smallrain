@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 
 import com.easychange.admin.smallrain.R;
 import com.easychange.admin.smallrain.base.BaseActivity;
+import com.easychange.admin.smallrain.login.LoginActivity;
 import com.easychange.admin.smallrain.login.RegisterActivity;
 
 import butterknife.BindView;
@@ -37,6 +38,7 @@ public class HomeActivity extends BaseActivity {
                 startActivity(new Intent(this, RegisterActivity.class));
                 break;
             case R.id.btn_login:
+                startActivity(new Intent(this, LoginActivity.class));
                 break;
             case R.id.layout_more:
 //                startActivity(new Intent(this, MainActivity.class));

@@ -50,7 +50,7 @@ public class SetLoginPassActivity extends BaseActivity {
                 }else if (!edtSurePass.getText().toString().equals(edtPass.getText().toString())){
                     Toast.makeText(mContext, "两次输入的密码不一致",Toast.LENGTH_SHORT).show();
                 }else {
-                    startActivity(new Intent(mContext,MainActivity.class));
+                    startActivity(new Intent(mContext,LoginActivity.class));
                 }
                 break;
             case R.id.img_home_right:

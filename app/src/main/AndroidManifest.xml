@@ -22,7 +22,9 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".login.RegisterActivity" />
         <activity android:name=".login.AuthCodeActivity" />
-        <activity android:name=".login.SetLoginPassActivity"></activity>
+        <activity android:name=".login.SetLoginPassActivity" />
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".login.ForgetPassActivity"></activity>
     </application>
 
 </manifest>
