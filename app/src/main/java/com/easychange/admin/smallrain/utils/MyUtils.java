@@ -244,6 +244,15 @@ public class MyUtils {
         return mScreenHeight;
     }
 
+    public static int getStatusBarHeight(Context context) {
+        int result = 0;
+        int resourceId = context.getResources().getIdentifier("status_bar_height", "dimen", "android");
+        if (resourceId > 0) {
+            result = context.getResources().getDimensionPixelSize(resourceId);
+        }
+        return result;
+    }
+
     //启动应用的设置，跳转到应用的设置界面
     public static void startAppSettingsResult(Activity activity) {
         Intent intent = new Intent(

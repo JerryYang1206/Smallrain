@@ -12,12 +12,12 @@
 
 
     <declare-styleable name="CustomHorizontalProgresStyle">
-        <attr name="HorizontalProgresUnReachColor" ></attr>
-        <attr name="HorizontalProgresUnReachHeight" ></attr>
-        <attr name="HorizontalProgresReachColor" ></attr>
-        <attr name="HorizontalProgresReachHeight" ></attr>
-        <attr name="HorizontalProgresTextColor" ></attr>
-        <attr name="HorizontalProgresTextSize" ></attr>
+        <attr name="HorizontalProgresUnReachColor"></attr>
+        <attr name="HorizontalProgresUnReachHeight"></attr>
+        <attr name="HorizontalProgresReachColor"></attr>
+        <attr name="HorizontalProgresReachHeight"></attr>
+        <attr name="HorizontalProgresTextColor"></attr>
+        <attr name="HorizontalProgresTextSize"></attr>
         <attr name="HorizontalProgresTextOffset"></attr>
 
     </declare-styleable>
@@ -32,5 +32,45 @@
         <attr name="CustomHasProgressNum" format="boolean"></attr>
 
     </declare-styleable>
+    <!--画图板-->
+    <declare-styleable name="drawimg">
+        <attr name="paintcolor"/>
+        //画笔颜色
+        <attr name="paintwidth"/>
+        // 画笔宽度
+        <attr name="canvasimg"/>
+        //画板图片
+        <attr name="paintimg"/>
+        //
+    </declare-styleable>
 
+    <!--指定单位-->
+    <attr name="paintcolor" format="color"/>
+    <attr name="paintwidth" format="dimension"/>
+    <attr name="canvasimg" format="reference"/>
+    <attr name="paintimg" format="reference"/>
+
+    <!--圆点指示器View属性-->
+    <declare-styleable name="IndicateDotView">
+        <!--已选中指示点颜色-->
+        <attr name="indicate_select_color" format="color"/>
+        <!--未选中指示点颜色-->
+        <attr name="indicate_unselect_color" format="color"/>
+        <!--指示点之间的间距-->
+        <attr name="indicate_margin" format="dimension"/>
+        <!--指示点半径-->
+        <attr name="indicate_radius" format="dimension"/>
+        <!--指示点被选中个数-->
+        <attr name="indicate_number" format="integer"/>
+        <!--指示点最大个数-->
+        <attr name="indicate_max_number" format="integer"/>
+        <!--是否最少保留一个指示点-->
+        <attr name="indicate_is_least_one" format="boolean"/>
+        <!--边框颜色-->
+        <attr name="indicate_divide_color" format="color"/>
+        <!--边框宽度-->
+        <attr name="indicate_divide_width" format="dimension"/>
+        <!--是否可点击-->
+        <attr name="android:clickable" />
+    </declare-styleable>
 </resources>
