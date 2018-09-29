@@ -123,6 +123,9 @@ public class ForgetPassActivity extends BaseActivity {
 //                seekBar.setThumbOffset(0);
             }
 
+
+
+
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
 
