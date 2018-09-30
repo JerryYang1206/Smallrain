@@ -73,4 +73,12 @@
         <!--是否可点击-->
         <attr name="android:clickable" />
     </declare-styleable>
+
+    <!--自定义发光控件-->
+    <declare-styleable name="BlurMaskFilterView">
+        <attr name="blur_marginLeft" format="dimension"/>
+        <attr name="blur_marginTop" format="dimension"/>
+        <attr name="blur_marginRight" format="dimension"/>
+        <attr name="blur_marginBottom" format="dimension"/>
+    </declare-styleable>
 </resources>

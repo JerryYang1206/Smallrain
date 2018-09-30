@@ -64,6 +64,7 @@ public class BalloonActivity extends BaseActivity {
                 startActivity(new Intent(this,MingciActivity.class));
                 break;
             case R.id.iv_dongci:
+                startActivity(new Intent(this,DongciActivity.class));
                 break;
             case R.id.iv_juzi:
                 break;

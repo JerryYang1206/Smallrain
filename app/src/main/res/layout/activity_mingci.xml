@@ -50,15 +50,15 @@
     </FrameLayout>
     <FrameLayout
         android:id="@+id/fl_content"
-        android:layout_width="85dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="305dp"
         android:background="@drawable/painttext_bg">
         <TextView
             android:id="@+id/tv_content"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="85dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="狗"
@@ -76,15 +76,15 @@
         android:src="@drawable/red_paint"/>
     <FrameLayout
         android:id="@+id/fl_paint"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:background="@drawable/painttext_bg">
         <TextView
             android:id="@+id/tv_paint"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="黄"

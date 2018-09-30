@@ -26,6 +26,8 @@
         <activity android:name=".activity.BalloonActivity"/>
         <activity android:name=".activity.MingciActivity">
         </activity>
+        <activity android:name=".activity.DongciActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -80,12 +80,24 @@ public class MingciActivity extends BaseActivity {
             @Override
             public void onEnd() {
                 AnimationHelper.startPaintGoneAnimation(MingciActivity.this, ivPaint);
-//                ivPaint.setVisibility(View.GONE);
-                AnimationHelper.startTextMergeAnimation(fl_paint, -80);
+                //字也要跟着移动
+                AnimationHelper.startTextMergeAnimation(fl_paint, -70);
                 AnimationHelper.startTextMergeAnimation(fl_content, 20);
-                AnimationHelper.startTextMergeAnimation(tvPaint, 40);
+                AnimationHelper.startTextMergeAnimation(tvPaint, 35);
                 AnimationHelper.startTextMergeAnimation(tv_content, 20);
                 AnimationHelper.startScaleAnimation(MingciActivity.this, drawImg);
+                fl_content.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        //                        fl_content.setBackgroundResource(R.drawable.faguang_bg);
+                        //                        fl_paint.setBackgroundResource(R.drawable.faguang_bg);
+                        //
+                        //
+                        //                        fl_paint.setVisibility(View.GONE);
+                        //                        tv_content.clearAnimation();
+                        //                        tv_content.setText("黄狗");
+                    }
+                }, 1000);
             }
         });
     }
@@ -106,10 +118,10 @@ public class MingciActivity extends BaseActivity {
     }
 
     private void startmoveText() {
-        int x1 = MyUtils.dip2px(this, (85 - 45) / 2 + 20);
-        int x2 = MyUtils.dip2px(this, (85 - 45) / 2 + 10);
+        int x1 = MyUtils.dip2px(this, (85 - 35) / 2 + 20);
+        int x2 = MyUtils.dip2px(this, (85 - 35) / 2 + 10);
         int screenHeight = MyUtils.getScreenHeight(MyApplication.getGloableContext());
-        int y = screenHeight - MyUtils.dip2px(this, 305 + 45) - MyUtils.getStatusBarHeight(this);
+        int y = screenHeight - MyUtils.dip2px(this, 305 + 35) - MyUtils.getStatusBarHeight(this);
         AnimationHelper.startTextMoveAnimation(fl_paint, x1, y);
         AnimationHelper.startTextMergeAnimation(fl_content, x2);//右边的字往右移动一些
     }
