@@ -44,11 +44,11 @@
                     android:layout_height="wrap_content"
                     android:max="100"
                     android:clickable="false"
-                    android:maxHeight="43dp"
-                    android:minHeight="43dp"
+                    android:maxHeight="44.5dp"
+                    android:minHeight="44.5dp"
                     android:thumbOffset="0dp"
                     android:progressDrawable="@drawable/seekbar_bg"
-                    android:thumb="@drawable/sign_icon_right3x"
+                    android:thumb="@drawable/thumb_left"
                     />
 
                 <TextView

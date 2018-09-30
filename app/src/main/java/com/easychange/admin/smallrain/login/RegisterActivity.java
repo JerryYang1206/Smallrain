@@ -142,12 +142,6 @@ public class RegisterActivity extends BaseActivity {
 
     private void showGetCodeDialog() {
         BaseDialog.Builder builder = new BaseDialog.Builder(this);
-        //设置dialogpadding
-//设置显示位置
-//设置动画
-//设置dialog的宽高
-//设置触摸dialog外围是否关闭
-//设置监听事件
         dialog = builder.setViewId(R.layout.dialog_scoll_getcode)
                 //设置dialogpadding
                 .setPaddingdp(0, 0, 0, 0)
@@ -167,12 +161,14 @@ public class RegisterActivity extends BaseActivity {
         mSeekBar_Sb.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {  //滑块正在滑动过程中的监听
-                if (progress >= 90) {       //滑动动作完成，设置滑块的图片是对号的图片
-                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.sign_icon_right3x));
+                if (progress >= 85) {       //滑动动作完成，设置滑块的图片是对号的图片
+                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.thumb_right));
 
-                } else {          //滑动动作没有完成，设置滑块的图片是箭头的图片
-                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.sign_icon_right3x));
+                } else if (progress<=15){          //滑动动作没有完成，设置滑块的图片是箭头的图片
+                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.thumb_left));
 
+                }else {
+                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.thumb_center));
                 }
 
             }
@@ -189,9 +185,11 @@ public class RegisterActivity extends BaseActivity {
                 if (seekBar.getProgress() < 90) {
                     seekBar.setProgress(11);
                     mSeekBar_tv.setVisibility(View.GONE);
+                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.thumb_left));
                 } else {
                     seekBar.setProgress(92);
                     mSeekBar_tv.setVisibility(View.VISIBLE);
+                    mSeekBar_Sb.setThumb(getResources().getDrawable(R.drawable.thumb_right));
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
