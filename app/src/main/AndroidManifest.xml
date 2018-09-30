@@ -24,16 +24,10 @@
         <activity android:name=".login.AuthCodeActivity"/>
         <activity android:name=".login.SetLoginPassActivity"/>
         <activity android:name=".activity.BalloonActivity"/>
-        <activity android:name=".activity.MingciActivity">
-        </activity>
-        <activity android:name=".activity.DongciActivity">
-        </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".login.RegisterActivity" />
-        <activity android:name=".login.AuthCodeActivity" />
-        <activity android:name=".login.SetLoginPassActivity" />
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".login.ForgetPassActivity"></activity>
+        <activity android:name=".login.LoginActivity"/>
+        <activity android:name=".login.ForgetPassActivity"/>
+        <activity android:name=".activity.MingciActivity"/>
+        <activity android:name=".activity.DongciActivity"/>
     </application>
 
 </manifest>

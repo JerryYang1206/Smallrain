@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.easychange.admin.smallrain.MainActivity;
 import com.easychange.admin.smallrain.R;
+import com.easychange.admin.smallrain.activity.BalloonActivity;
 import com.easychange.admin.smallrain.base.BaseActivity;
 
 import butterknife.BindView;
@@ -90,7 +91,7 @@ public class LoginActivity extends BaseActivity {
                 tvKjLogin.setTextColor(Color.parseColor("#c06d00"));
                 break;
             case R.id.tv_login:
-                startActivity(new Intent(mContext, MainActivity.class));
+                startActivity(new Intent(mContext, BalloonActivity.class));
                 break;
             case R.id.tv_register:
                 startActivity(new Intent(mContext, RegisterActivity.class));
