@@ -5,12 +5,11 @@ import android.os.Bundle;
 import com.easychange.admin.smallrain.R;
 import com.easychange.admin.smallrain.base.BaseActivity;
 
-public class DongciActivity extends BaseActivity {
+public class MingciTestActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dongci);
+        setContentView(R.layout.activity_mingci_test);
     }
-
 }

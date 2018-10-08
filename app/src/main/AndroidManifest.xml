@@ -28,6 +28,10 @@
         <activity android:name=".login.ForgetPassActivity"/>
         <activity android:name=".activity.MingciActivity"/>
         <activity android:name=".activity.DongciActivity"/>
+        <activity android:name=".activity.LetsTestActivity">
+        </activity>
+        <activity android:name=".activity.MingciTestActivity">
+        </activity>
     </application>
 
 </manifest>

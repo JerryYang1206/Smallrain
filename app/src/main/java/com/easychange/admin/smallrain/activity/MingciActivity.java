@@ -1,5 +1,6 @@
 package com.easychange.admin.smallrain.activity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -157,6 +158,7 @@ public class MingciActivity extends BaseActivity {
                         AnimationHelper.startScaleAnimation(MingciActivity.this, drawImg);
                         rl_root.setBackground(null);
                         fl_root.setBackgroundResource(R.drawable.faguang_bg);
+                        startActivity(new Intent(MingciActivity.this,LetsTestActivity.class));
                     }
 
                     @Override
@@ -164,7 +166,6 @@ public class MingciActivity extends BaseActivity {
 
                     }
                 });
-
             }
         });
     }
@@ -176,6 +177,7 @@ public class MingciActivity extends BaseActivity {
                 finish();
                 break;
             case R.id.iv_home:
+                finish();
                 break;
             case R.id.iv_paint:
             case R.id.iv_point:

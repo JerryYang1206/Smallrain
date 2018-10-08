@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -17,8 +18,10 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.easychange.admin.smallrain.MainActivity;
 import com.easychange.admin.smallrain.R;
 import com.easychange.admin.smallrain.base.BaseActivity;
+import com.easychange.admin.smallrain.base.BaseDialog;
 import com.easychange.admin.smallrain.utils.MyUtils;
 import com.easychange.admin.smallrain.views.CircleImageView;
 
@@ -59,6 +62,7 @@ public class BalloonActivity extends BaseActivity {
             case R.id.iv_head:
                 break;
             case R.id.ll_jiazhang:
+                showFamilyDialog();
                 break;
             case R.id.iv_mingci:
                 startActivity(new Intent(this,MingciActivity.class));
@@ -116,6 +120,39 @@ public class BalloonActivity extends BaseActivity {
         startAnimator(iv_mingci, marginleft + screenWidth / 11, -(screenHeight / 3.6f), 2000, 0);
         startAnimator(iv_dongci, marginleft + screenWidth / 11 * 4.3f, -(screenHeight / 5.0f), 2500, 1);
         startAnimator(iv_juzi, marginleft + screenWidth / 11 * 7, -(screenHeight / 2.2f), 3000, 2);
+    }
+
+    private void showFamilyDialog() {
+        BaseDialog.Builder builder = new BaseDialog.Builder(this);
+        int height = MyUtils.dip2px(this, 230);
+        final BaseDialog dialog = builder.setViewId(R.layout.dialog_family)
+                //设置dialogpadding
+                .setPaddingdp(20, 0, 20, 0)
+                //设置显示位置
+                .setGravity(Gravity.CENTER)
+                //设置动画
+                .setAnimation(R.style.Alpah_aniamtion)
+                //设置dialog的宽高
+                .setWidthHeightpx(LinearLayout.LayoutParams.MATCH_PARENT, height)
+                //设置触摸dialog外围是否关闭
+                .isOnTouchCanceled(true)
+                //设置监听事件
+                .builder();
+        dialog.getView(R.id.tv_yes).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+                Intent intent = new Intent(BalloonActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        dialog.getView(R.id.iv_close).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dialog.dismiss();
+            }
+        });
+        dialog.show();
     }
 
     private void initStatusBar() {
