@@ -77,7 +77,7 @@ public class BalloonActivity extends BaseActivity {
 
     private void startFlutterAnimator(ImageView view) {
         ObjectAnimator transYAnim = ObjectAnimator.ofFloat(view, "translationY", -flutterHeight, -flutterHeight - 30);
-        transYAnim.setDuration(2000);
+        transYAnim.setDuration(1000);
         transYAnim.setRepeatMode(ObjectAnimator.REVERSE);
         transYAnim.setRepeatCount(-1);
         transYAnim.start();
@@ -117,9 +117,9 @@ public class BalloonActivity extends BaseActivity {
         int screenHeight = MyUtils.getScreenHeight(this);
         int marginleft = MyUtils.dip2px(this, 100);
         flutterHeight = screenHeight / 3.6f;
-        startAnimator(iv_mingci, marginleft + screenWidth / 11, -(screenHeight / 3.6f), 2000, 0);
-        startAnimator(iv_dongci, marginleft + screenWidth / 11 * 4.3f, -(screenHeight / 5.0f), 2500, 1);
-        startAnimator(iv_juzi, marginleft + screenWidth / 11 * 7, -(screenHeight / 2.2f), 3000, 2);
+        startAnimator(iv_mingci, marginleft + screenWidth / 11, -(screenHeight / 3.6f), 1300, 0);
+        startAnimator(iv_dongci, marginleft + screenWidth / 11 * 4.3f, -(screenHeight / 5.0f), 1700, 1);
+        startAnimator(iv_juzi, marginleft + screenWidth / 11 * 7, -(screenHeight / 2.2f), 2000, 2);
     }
 
     private void showFamilyDialog() {

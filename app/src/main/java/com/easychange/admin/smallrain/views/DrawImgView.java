@@ -196,8 +196,6 @@ public class DrawImgView extends View {
     }
 
     //这个ondraw方法只有一句代码，意思是在手指移动的同时把画板图片绘制出来
-
-
     private Path mPath;
     private PathMeasure mPathMeasure;
     private float[] mPoint;

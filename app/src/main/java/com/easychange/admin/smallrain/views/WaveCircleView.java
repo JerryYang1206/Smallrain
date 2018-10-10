@@ -17,7 +17,7 @@ import java.util.List;
 
 public class WaveCircleView extends View {
     private static final int DEF_VIEW_SIZE = 75;
-    private static final int UNIT_TIME = 1000;
+    private static final int UNIT_TIME = 800;
 
     private Point circelCenterPoint;
     private int maxRadius;
@@ -44,11 +44,8 @@ public class WaveCircleView extends View {
         circleRadiusList = new ArrayList<>();
         waveColors = new ArrayList<>();
         waveColors.add(ContextCompat.getColor(getContext(), android.R.color.white));
-        waveColors.add(ContextCompat.getColor(getContext(), R.color.white_80));
         waveColors.add(ContextCompat.getColor(getContext(), R.color.white_60));
-        waveColors.add(ContextCompat.getColor(getContext(), R.color.white_40));
         waveColors.add(ContextCompat.getColor(getContext(), R.color.white_20));
-        waveColors.add(ContextCompat.getColor(getContext(), R.color.white_05));
 
         for (int paintColor : waveColors) {
             Paint tempPaint = new Paint();

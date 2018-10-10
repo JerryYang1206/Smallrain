@@ -31,7 +31,7 @@ public class AnimationHelper {
         ObjectAnimator rotation4 = ObjectAnimator.ofFloat(view, "rotation", -15f, 0f);
         paintRotateSet = new AnimatorSet();
         paintRotateSet.playSequentially(rotation1, rotation2, rotation3, rotation4);
-        paintRotateSet.setDuration(2000);
+        paintRotateSet.setDuration(1000);
         paintRotateSet.start();
     }
 
@@ -55,7 +55,7 @@ public class AnimationHelper {
         ObjectAnimator oby = ObjectAnimator.ofFloat(view, "translationY", -y);
         AnimatorSet set = new AnimatorSet();
         set.playTogether(rotation, obx, oby);
-        set.setDuration(2000);
+        set.setDuration(1000);
         set.start();
         set.addListener(new AnimatorListenerAdapter() {
             @Override
@@ -76,16 +76,16 @@ public class AnimationHelper {
         obx.setRepeatCount(3);
         AnimatorSet set = new AnimatorSet();
         set.playTogether(oby, obx);
-        set.setDuration(2000);
+        set.setDuration(1000);
         set.start();
     }
 
     /*文字飞的动画*/
     public static void startTextMoveAnimation(View view, int x, int y) {
         ObjectAnimator obx = ObjectAnimator.ofFloat(view, "translationX", -x);
-        obx.setDuration(2000);
+        obx.setDuration(1000);
         ObjectAnimator oby = ObjectAnimator.ofFloat(view, "translationY", -y);
-        oby.setDuration(2000);
+        oby.setDuration(1000);
         obx.start();
         oby.start();
     }
@@ -93,7 +93,7 @@ public class AnimationHelper {
     /*文字合并的动画*/
     public static void startTextMergeAnimation(View view, int width) {
         ObjectAnimator obx = ObjectAnimator.ofFloat(view, "translationX", width);
-        obx.setDuration(2000);
+        obx.setDuration(1000);
         obx.start();
     }
 
