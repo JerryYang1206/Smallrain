@@ -1,14 +1,9 @@
 package com.easychange.admin.smallrain.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
-import android.util.Log;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
@@ -74,7 +69,6 @@ public class MingciActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mingci);
         ButterKnife.bind(this);
-        initStatusBar();
         ivPaint.setImageResource(paintList[3]);
         AnimationHelper.startScaleAnimation(this, drawImg);
         ivPaint.post(new Runnable() {
@@ -136,7 +130,6 @@ public class MingciActivity extends BaseActivity {
             public void run() {
                 rl_root.setBackgroundResource(R.drawable.painttext_bg);
                 int i = (MyUtils.dip2px(MingciActivity.this, 135) - (tvPaint2.getWidth() + tv_content.getWidth())) / 2;
-                Log.e("xxx", tvPaint2.getWidth() + "\n" + tv_content.getWidth() + "\n" + i);
                 int paintX = MyUtils.dip2px(MingciActivity.this, 35) - tvPaint2.getWidth();
                 int contentX = MyUtils.dip2px(MingciActivity.this, 85 - 25) - tv_content.getWidth();
                 TranslateAnimation tr = new TranslateAnimation(-contentX, -i, 0, 0);
@@ -215,19 +208,4 @@ public class MingciActivity extends BaseActivity {
         });
     }
 
-    private void initStatusBar() {
-        //最终方案
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            // 5.0 全透明实现
-            // getWindow.setStatusBarColor(Color.TRANSPARENT)
-            Window window = getWindow();
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN | View.SYSTEM_UI_FLAG_LAYOUT_STABLE);
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(Color.TRANSPARENT);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 4.4 全透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        }
-    }
 }
