@@ -4,7 +4,6 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,7 +27,7 @@ import com.easychange.admin.smallrain.views.IndicatorView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MingciTestActivity extends BaseActivity implements View.OnClickListener {
+public class MingciTest2Activity extends BaseActivity implements View.OnClickListener {
 
     @BindView(R.id.ll_indicator)
     IndicatorView llIndicator;
@@ -56,6 +55,18 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
     LinearLayout ll_choose1;
     @BindView(R.id.ll_choose2)
     LinearLayout ll_choose2;
+    @BindView(R.id.iv_choose3)
+    ImageView ivChoose3;
+    @BindView(R.id.tv_choose3)
+    TextView tvChoose3;
+    @BindView(R.id.iv_choose4)
+    ImageView ivChoose4;
+    @BindView(R.id.tv_choose4)
+    TextView tvChoose4;
+    @BindView(R.id.ll_choose3)
+    LinearLayout ll_choose3;
+    @BindView(R.id.ll_choose4)
+    LinearLayout ll_choose4;
     @BindView(R.id.tv_paint)
     TextView tvPaint;
     @BindView(R.id.tv_content)
@@ -88,11 +99,13 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_mingci_test);
+        setContentView(R.layout.activity_mingci_test2);
         ButterKnife.bind(this);
         AnimationHelper.startScaleAnimation(this, ivImg);
         ll_choose2.setOnClickListener(this);
         ll_choose1.setOnClickListener(this);
+        ll_choose3.setOnClickListener(this);
+        ll_choose4.setOnClickListener(this);
         Message message = handler.obtainMessage(1);
         handler.sendMessageDelayed(message, 100);
     }
@@ -101,42 +114,7 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.ll_choose1:
-                if (!isCorrect) {
-                    return;
-                }
-                ll_choose1.setClickable(false);
-                AnimationHelper.startScaleAnimation(mContext, ll_choose1);
-                new Handler().postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        int screenWidth = MyUtils.getScreenWidth(mContext);
-                        ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose1, "scaleX", 1f, 0.8f);
-                        ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose1, "scaleY", 1f, 0.5f);
-                        ObjectAnimator obx = ObjectAnimator.ofFloat(ll_choose1, "translationX", screenWidth / 3.2f);
-                        int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
-                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose1, "translationY", -y);
-                        AnimatorSet set = new AnimatorSet();
-                        set.playTogether(sax, say, obx, oby);
-                        set.setDuration(1000);
-                        set.start();
-                        set.addListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                super.onAnimationEnd(animation);
-                                tvContent.setVisibility(View.VISIBLE);
-                                ll_choose1.setVisibility(View.GONE);
-                                ivContent2.setVisibility(View.INVISIBLE);
 
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        mergeText();
-                                    }
-                                }, 500);
-                            }
-                        });
-                    }
-                }, 1000);
                 break;
             case R.id.ll_choose2:
                 isCorrect = true;
@@ -149,10 +127,9 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                         ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose2, "scaleX", 1f, 0.8f);
                         ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose2, "scaleY", 1f, 0.5f);
                         int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
-                        ObjectAnimator obx = ObjectAnimator.ofFloat(ll_choose2, "translationX", -screenWidth / 3.2f);
                         ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose2, "translationY", -y);
                         AnimatorSet set = new AnimatorSet();
-                        set.playTogether(sax, say, obx, oby);
+                        set.playTogether(sax, say, oby);
                         set.setDuration(1000);
                         set.start();
                         set.addListener(new AnimatorListenerAdapter() {
@@ -166,6 +143,46 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                         });
                     }
                 }, 1000);
+                break;
+            case R.id.ll_choose3:
+                if (!isCorrect) {
+                    return;
+                }
+                ll_choose3.setClickable(false);
+                AnimationHelper.startScaleAnimation(mContext, ll_choose3);
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        int screenWidth = MyUtils.getScreenWidth(mContext);
+                        ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose3, "scaleX", 1f, 0.8f);
+                        ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose3, "scaleY", 1f, 0.5f);
+                        int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
+                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose3, "translationY", -y);
+                        AnimatorSet set = new AnimatorSet();
+                        set.playTogether(sax, say, oby);
+                        set.setDuration(1000);
+                        set.start();
+                        set.addListener(new AnimatorListenerAdapter() {
+                            @Override
+                            public void onAnimationEnd(Animator animation) {
+                                super.onAnimationEnd(animation);
+                                tvContent.setVisibility(View.VISIBLE);
+                                ll_choose3.setVisibility(View.GONE);
+                                ivContent2.setVisibility(View.INVISIBLE);
+
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        mergeText();
+                                    }
+                                }, 500);
+                            }
+                        });
+                    }
+                }, 1000);
+                break;
+            case R.id.ll_choose4:
+
                 break;
         }
     }
@@ -189,9 +206,9 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
             @Override
             public void run() {
                 rl_root.setBackgroundResource(R.drawable.painttext_bg);
-                int i = (MyUtils.dip2px(MingciTestActivity.this, 175) - (tvPaint.getWidth() + tvContent.getWidth())) / 2;
-                int paintX = MyUtils.dip2px(MingciTestActivity.this, 75) - tvPaint.getWidth();
-                int contentX = MyUtils.dip2px(MingciTestActivity.this, 80 - 20) - tvContent.getWidth();
+                int i = (MyUtils.dip2px(MingciTest2Activity.this, 175) - (tvPaint.getWidth() + tvContent.getWidth())) / 2;
+                int paintX = MyUtils.dip2px(MingciTest2Activity.this, 75) - tvPaint.getWidth();
+                int contentX = MyUtils.dip2px(MingciTest2Activity.this, 80 - 20) - tvContent.getWidth();
                 TranslateAnimation tr = new TranslateAnimation(-contentX, -i, 0, 0);
                 tr.setDuration(1000);
                 tr.setFillAfter(true);
@@ -209,16 +226,9 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        AnimationHelper.startScaleAnimation(MingciTestActivity.this, ivImg);
+                        AnimationHelper.startScaleAnimation(MingciTest2Activity.this, ivImg);
                         rl_root.setBackground(null);
                         flRoot.setBackgroundResource(R.drawable.faguang_bg);
-                        AnimationHelper.startScaleAnimation(MingciTestActivity.this, ivImg);
-                        new Handler().postDelayed(new Runnable() {
-                            @Override
-                            public void run() {
-                                startActivity(new Intent(MingciTestActivity.this, MingciTest2Activity.class));
-                            }
-                        }, 1000);
                     }
 
                     @Override

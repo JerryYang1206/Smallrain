@@ -98,7 +98,7 @@ public class MingciActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                if (!isClicked){
+                if (!isClicked) {
                     fl_point.setVisibility(View.VISIBLE);
                     waveCirlceView.startWave();
                 }
@@ -151,7 +151,13 @@ public class MingciActivity extends BaseActivity {
                         AnimationHelper.startScaleAnimation(MingciActivity.this, drawImg);
                         rl_root.setBackground(null);
                         fl_root.setBackgroundResource(R.drawable.faguang_bg);
-                        startActivity(new Intent(MingciActivity.this,LetsTestActivity.class));
+                        AnimationHelper.startScaleAnimation(MingciActivity.this, drawImg);
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                startActivity(new Intent(MingciActivity.this, LetsTestActivity.class));
+                            }
+                        }, 1000);
                     }
 
                     @Override

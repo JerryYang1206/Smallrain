@@ -74,11 +74,11 @@
         <attr name="android:clickable" />
     </declare-styleable>
 
-    <!--自定义发光控件-->
-    <declare-styleable name="BlurMaskFilterView">
-        <attr name="blur_marginLeft" format="dimension"/>
-        <attr name="blur_marginTop" format="dimension"/>
-        <attr name="blur_marginRight" format="dimension"/>
-        <attr name="blur_marginBottom" format="dimension"/>
+    <!--自定义环形进度条-->
+    <declare-styleable name="circleProgressBar">
+        <attr name="circleWidth" format="dimension" />
+        <attr name="betaAngle" format="integer" />
+        <attr name="firstColor" format="color" />
+        <attr name="secondColor" format="color" />
     </declare-styleable>
 </resources>
