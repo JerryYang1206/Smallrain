@@ -1,14 +1,12 @@
 package com.easychange.admin.smallrain.activity;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
 import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.ScaleAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -124,21 +122,33 @@ public class MingciTest2Activity extends BaseActivity implements View.OnClickLis
                     @Override
                     public void run() {
                         int screenWidth = MyUtils.getScreenWidth(mContext);
-                        ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose2, "scaleX", 1f, 0.8f);
-                        ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose2, "scaleY", 1f, 0.5f);
-                        int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
-                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose2, "translationY", -y);
-                        AnimatorSet set = new AnimatorSet();
-                        set.playTogether(sax, say, oby);
-                        set.setDuration(1000);
-                        set.start();
-                        set.addListener(new AnimatorListenerAdapter() {
+                        int screenHeight = MyUtils.getScreenHeight(mContext);
+                        Animation scaleAnimation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.5f);
+                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 347 + 50) - ll_choose2.getHeight();
+                        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -y);
+                        AnimationSet setAnimation = new AnimationSet(true);
+                        setAnimation.setDuration(1000);
+                        setAnimation.addAnimation(scaleAnimation);
+                        setAnimation.addAnimation(translateAnimation);
+                        setAnimation.setFillAfter(true);
+                        ll_choose2.startAnimation(setAnimation);
+                        setAnimation.setAnimationListener(new Animation.AnimationListener() {
                             @Override
-                            public void onAnimationEnd(Animator animation) {
-                                super.onAnimationEnd(animation);
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
                                 tvPaint.setVisibility(View.VISIBLE);
-                                ll_choose2.setVisibility(View.GONE);
+                                ll_choose2.clearAnimation();
+                                ll_choose2.setVisibility(View.INVISIBLE);
                                 ivContent1.setVisibility(View.INVISIBLE);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
                             }
                         });
                     }
@@ -154,28 +164,39 @@ public class MingciTest2Activity extends BaseActivity implements View.OnClickLis
                     @Override
                     public void run() {
                         int screenWidth = MyUtils.getScreenWidth(mContext);
-                        ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose3, "scaleX", 1f, 0.8f);
-                        ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose3, "scaleY", 1f, 0.5f);
-                        int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
-                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose3, "translationY", -y);
-                        AnimatorSet set = new AnimatorSet();
-                        set.playTogether(sax, say, oby);
-                        set.setDuration(1000);
-                        set.start();
-                        set.addListener(new AnimatorListenerAdapter() {
+                        int screenHeight = MyUtils.getScreenHeight(mContext);
+                        Animation scaleAnimation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.5f);
+                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 347 + 50) - ll_choose3.getHeight();
+                        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -y);
+                        AnimationSet setAnimation = new AnimationSet(true);
+                        setAnimation.setDuration(1000);
+                        setAnimation.addAnimation(scaleAnimation);
+                        setAnimation.addAnimation(translateAnimation);
+                        setAnimation.setFillAfter(true);
+                        ll_choose3.startAnimation(setAnimation);
+                        setAnimation.setAnimationListener(new Animation.AnimationListener() {
                             @Override
-                            public void onAnimationEnd(Animator animation) {
-                                super.onAnimationEnd(animation);
-                                tvContent.setVisibility(View.VISIBLE);
-                                ll_choose3.setVisibility(View.GONE);
-                                ivContent2.setVisibility(View.INVISIBLE);
+                            public void onAnimationStart(Animation animation) {
 
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                tvContent.setVisibility(View.VISIBLE);
+                                ll_choose3.clearAnimation();
+                                ll_choose3.setVisibility(View.INVISIBLE);
+                                ivContent2.setVisibility(View.INVISIBLE);
                                 new Handler().postDelayed(new Runnable() {
                                     @Override
                                     public void run() {
                                         mergeText();
                                     }
                                 }, 500);
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
                             }
                         });
                     }

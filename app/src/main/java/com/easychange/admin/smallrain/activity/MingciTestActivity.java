@@ -110,10 +110,11 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                     @Override
                     public void run() {
                         int screenWidth = MyUtils.getScreenWidth(mContext);
+                        int screenHeight = MyUtils.getScreenHeight(mContext);
                         ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose1, "scaleX", 1f, 0.8f);
                         ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose1, "scaleY", 1f, 0.5f);
                         ObjectAnimator obx = ObjectAnimator.ofFloat(ll_choose1, "translationX", screenWidth / 3.2f);
-                        int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
+                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 350 + 50) - ll_choose1.getHeight();
                         ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose1, "translationY", -y);
                         AnimatorSet set = new AnimatorSet();
                         set.playTogether(sax, say, obx, oby);
@@ -146,9 +147,10 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                     @Override
                     public void run() {
                         int screenWidth = MyUtils.getScreenWidth(mContext);
+                        int screenHeight = MyUtils.getScreenHeight(mContext);
                         ObjectAnimator sax = ObjectAnimator.ofFloat(ll_choose2, "scaleX", 1f, 0.8f);
                         ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose2, "scaleY", 1f, 0.5f);
-                        int y = MyUtils.dip2px(MyApplication.getGloableContext(), 100);
+                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 350 + 50) - ll_choose2.getHeight();
                         ObjectAnimator obx = ObjectAnimator.ofFloat(ll_choose2, "translationX", -screenWidth / 3.2f);
                         ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose2, "translationY", -y);
                         AnimatorSet set = new AnimatorSet();
