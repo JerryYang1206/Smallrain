@@ -55,7 +55,6 @@
             android:id="@+id/iv_content1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:visibility="invisible"
             android:src="@drawable/n_blank_bg"/>
         <ImageView
             android:id="@+id/iv_content2"
@@ -90,6 +89,7 @@
                 android:textColor="@color/paint_textcolor"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:visibility="invisible"
             />
 
             <TextView
@@ -100,7 +100,7 @@
                 android:layout_marginLeft="95dp"
                 android:background="@drawable/painttext_bg"
                 android:gravity="center"
-                android:text="苹果"
+                android:text="冰淇淋"
                 android:textColor="@color/paint_textcolor"
                 android:textSize="18sp"
                 android:textStyle="bold"
@@ -124,13 +124,13 @@
             android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
-            android:src="@drawable/apple_stroke"/>
+            android:src="@drawable/eat1"/>
         <TextView
             android:id="@+id/tv_choose1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
-            android:text="苹果"
+            android:text="吃"
             android:textColor="@color/paint_textcolor"
             android:textStyle="bold"/>
     </LinearLayout>

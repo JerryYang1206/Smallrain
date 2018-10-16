@@ -152,12 +152,26 @@ public class MingciActivity extends BaseActivity {
                         rl_root.setBackground(null);
                         fl_root.setBackgroundResource(R.drawable.faguang_bg);
                         AnimationHelper.startScaleAnimation(MingciActivity.this, drawImg);
-                        new Handler().postDelayed(new Runnable() {
+                        //最后放大一下
+                        Animation aa = android.view.animation.AnimationUtils.loadAnimation(MingciActivity.this, R.anim.anim_scale_pic);
+                        drawImg.startAnimation(aa);
+                        aa.setAnimationListener(new Animation.AnimationListener() {
                             @Override
-                            public void run() {
-                                startActivity(new Intent(MingciActivity.this, LetsTestActivity.class));
+                            public void onAnimationStart(Animation animation) {
+
                             }
-                        }, 1000);
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                startActivity(new Intent(MingciActivity.this, LetsTestActivity.class));
+                                finish();
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
                     }
 
                     @Override

@@ -31,6 +31,7 @@
         <activity android:name=".activity.LetsTestActivity"/>
         <activity android:name=".activity.MingciTestActivity"/>
         <activity android:name=".activity.MingciTest2Activity"/>
+        <activity android:name=".activity.JuZiActivity"/>
     </application>
 
 </manifest>

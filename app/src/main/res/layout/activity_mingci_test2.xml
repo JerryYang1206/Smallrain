@@ -105,7 +105,7 @@
                 android:layout_marginLeft="95dp"
                 android:background="@drawable/painttext_bg"
                 android:gravity="center"
-                android:text="小鸟"
+                android:text="鸟"
                 android:textColor="@color/paint_textcolor"
                 android:textSize="18sp"
                 android:textStyle="bold"

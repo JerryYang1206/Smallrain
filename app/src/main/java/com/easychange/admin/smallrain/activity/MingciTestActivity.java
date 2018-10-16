@@ -115,7 +115,8 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                         ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose1, "scaleY", 1f, 0.5f);
                         ObjectAnimator obx = ObjectAnimator.ofFloat(ll_choose1, "translationX", screenWidth / 3.2f);
                         int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 350 + 50) - ll_choose1.getHeight();
-                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose1, "translationY", -y);
+                        //因为图片透明边距的问题加10
+                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose1, "translationY", -y-MyUtils.dip2px(MyApplication.getGloableContext(), 10));
                         AnimatorSet set = new AnimatorSet();
                         set.playTogether(sax, say, obx, oby);
                         set.setDuration(1000);
@@ -152,7 +153,8 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                         ObjectAnimator say = ObjectAnimator.ofFloat(ll_choose2, "scaleY", 1f, 0.5f);
                         int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 350 + 50) - ll_choose2.getHeight();
                         ObjectAnimator obx = ObjectAnimator.ofFloat(ll_choose2, "translationX", -screenWidth / 3.2f);
-                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose2, "translationY", -y);
+                        //因为图片透明边距的问题加10
+                        ObjectAnimator oby = ObjectAnimator.ofFloat(ll_choose2, "translationY", -y-MyUtils.dip2px(MyApplication.getGloableContext(), 10));
                         AnimatorSet set = new AnimatorSet();
                         set.playTogether(sax, say, obx, oby);
                         set.setDuration(1000);
@@ -214,13 +216,26 @@ public class MingciTestActivity extends BaseActivity implements View.OnClickList
                         AnimationHelper.startScaleAnimation(MingciTestActivity.this, ivImg);
                         rl_root.setBackground(null);
                         flRoot.setBackgroundResource(R.drawable.faguang_bg);
-                        AnimationHelper.startScaleAnimation(MingciTestActivity.this, ivImg);
-                        new Handler().postDelayed(new Runnable() {
+                        //最后放大一下
+                        Animation aa = android.view.animation.AnimationUtils.loadAnimation(MingciTestActivity.this, R.anim.anim_scale_pic);
+                        ivImg.startAnimation(aa);
+                        aa.setAnimationListener(new Animation.AnimationListener() {
                             @Override
-                            public void run() {
-                                startActivity(new Intent(MingciTestActivity.this, MingciTest2Activity.class));
+                            public void onAnimationStart(Animation animation) {
+
                             }
-                        }, 1000);
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+                                startActivity(new Intent(MingciTestActivity.this, MingciTest2Activity.class));
+                                finish();
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
                     }
 
                     @Override

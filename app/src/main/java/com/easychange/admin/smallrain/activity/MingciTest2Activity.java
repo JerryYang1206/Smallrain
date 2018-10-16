@@ -111,6 +111,9 @@ public class MingciTest2Activity extends BaseActivity implements View.OnClickLis
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.iv_pause:
+                finish();
+                break;
             case R.id.ll_choose1:
 
                 break;
@@ -124,8 +127,9 @@ public class MingciTest2Activity extends BaseActivity implements View.OnClickLis
                         int screenWidth = MyUtils.getScreenWidth(mContext);
                         int screenHeight = MyUtils.getScreenHeight(mContext);
                         Animation scaleAnimation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.5f);
-                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 347 + 50) - ll_choose2.getHeight();
-                        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -y);
+                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 350 + 50) - ll_choose2.getHeight();
+                        //因为图片透明边距的问题微调
+                        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -y+MyUtils.dip2px(MyApplication.getGloableContext(), 18));
                         AnimationSet setAnimation = new AnimationSet(true);
                         setAnimation.setDuration(1000);
                         setAnimation.addAnimation(scaleAnimation);
@@ -166,8 +170,9 @@ public class MingciTest2Activity extends BaseActivity implements View.OnClickLis
                         int screenWidth = MyUtils.getScreenWidth(mContext);
                         int screenHeight = MyUtils.getScreenHeight(mContext);
                         Animation scaleAnimation = new ScaleAnimation(1.0f, 0.8f, 1.0f, 0.5f);
-                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 347 + 50) - ll_choose3.getHeight();
-                        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -y);
+                        int y = screenHeight - MyUtils.dip2px(MyApplication.getGloableContext(), 350 + 50) - ll_choose3.getHeight();
+                        //因为图片透明边距的问题微调
+                        TranslateAnimation translateAnimation = new TranslateAnimation(0, 0, 0, -y+MyUtils.dip2px(MyApplication.getGloableContext(), 18));
                         AnimationSet setAnimation = new AnimationSet(true);
                         setAnimation.setDuration(1000);
                         setAnimation.addAnimation(scaleAnimation);
@@ -247,9 +252,27 @@ public class MingciTest2Activity extends BaseActivity implements View.OnClickLis
 
                     @Override
                     public void onAnimationEnd(Animation animation) {
-                        AnimationHelper.startScaleAnimation(MingciTest2Activity.this, ivImg);
                         rl_root.setBackground(null);
                         flRoot.setBackgroundResource(R.drawable.faguang_bg);
+                        //最后放大一下
+                        Animation aa = android.view.animation.AnimationUtils.loadAnimation(MingciTest2Activity.this, R.anim.anim_scale_pic);
+                        ivImg.startAnimation(aa);
+                        aa.setAnimationListener(new Animation.AnimationListener() {
+                            @Override
+                            public void onAnimationStart(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationEnd(Animation animation) {
+
+                            }
+
+                            @Override
+                            public void onAnimationRepeat(Animation animation) {
+
+                            }
+                        });
                     }
 
                     @Override
